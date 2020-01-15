@@ -1,9 +1,19 @@
 {
 	"name": "nepada/phpstan-nette-tester",
 	"type": "phpstan-extension",
+	"license": "BSD-3-Clause",
 	"description": "PHPStan nette/tester extension",
 	"keywords": ["phpstan", "nette", "tester"],
-	"license": "MIT",
+	"support": {
+		"email": "petr@pada.cz",
+		"issues": "https://github.com/nepada/phpstan-nette-tester/issues"
+	},
+	"authors": [
+		{
+			"name": "Petr Morávek",
+			"email": "petr@pada.cz"
+		}
+	],
 	"require": {
 		"php": ">=7.2",
 		"nikic/php-parser": "^4.0",
