@@ -32,116 +32,117 @@ class AssertTypeSpecifyingExtensionTest extends RuleTestCase
 
     public function testExtension(): void
     {
+        $base = 37;
         $this->analyse(
             [__DIR__ . '/Fixtures/Foo.php'],
             [
                 [
                     'Variable $a is: null',
-                    39,
+                    $base,
                 ],
                 [
                     'Variable $u is: string',
-                    42,
+                    $base + 3,
                 ],
                 [
                     'Variable $b is: true',
-                    45,
+                    $base + 6,
                 ],
                 [
                     'Variable $c is: false',
-                    48,
+                    $base + 9,
                 ],
                 [
                     'Variable $d is: float',
-                    51,
+                    $base + 12,
                 ],
                 [
                     'Variable $e is: \'Lorem ipsum\'',
-                    54,
+                    $base + 15,
                 ],
                 [
                     'Variable $item is: string',
-                    58,
+                    $base + 19,
                 ],
                 [
                     'Variable $item is: false',
-                    62,
+                    $base + 23,
                 ],
                 [
                     'Variable $h is: array',
-                    65,
+                    $base + 26,
                 ],
                 [
                     'Variable $i is: array',
-                    68,
+                    $base + 29,
                 ],
                 [
                     'Variable $j is: bool',
-                    71,
+                    $base + 32,
                 ],
                 [
                     'Variable $k is: callable(): mixed',
-                    74,
+                    $base + 35,
                 ],
                 [
                     'Variable $l is: float',
-                    77,
+                    $base + 38,
                 ],
                 [
                     'Variable $m is: int',
-                    80,
+                    $base + 41,
                 ],
                 [
                     'Variable $n is: int',
-                    83,
+                    $base + 44,
                 ],
                 [
                     'Variable $o is: null',
-                    86,
+                    $base + 47,
                 ],
                 [
                     'Variable $p is: object',
-                    89,
+                    $base + 50,
                 ],
                 [
                     'Variable $q is: resource',
-                    92,
+                    $base + 53,
                 ],
                 [
                     'Variable $r is: bool|float|int|string',
-                    95,
+                    $base + 56,
                 ],
                 [
                     'Variable $s is: string',
-                    98,
+                    $base + 59,
                 ],
                 [
                     'Variable $t is: NepadaTests\PHPStan\Type\NetteTester\Fixtures\Foo',
-                    101,
+                    $base + 62,
                 ],
                 [
                     'Variable $x is: 1|2',
-                    104,
+                    $base + 65,
                 ],
                 [
                     'Variable $x is: 2',
-                    106,
+                    $base + 67,
                 ],
                 [
                     'Variable $y is: \'\'|array(\'foo\')',
-                    109,
+                    $base + 70,
                 ],
                 [
                     'Variable $y is: array(\'foo\')',
-                    111,
+                    $base + 72,
                 ],
                 [
                     'Variable $z is: \'\'|array(\'foo\')',
-                    114,
+                    $base + 75,
                 ],
                 [
                     'Variable $z is: \'\'',
-                    116,
+                    $base + 77,
                 ],
             ]
         );
