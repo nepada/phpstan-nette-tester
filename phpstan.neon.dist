@@ -4,4 +4,4 @@ includes:
 parameters:
 	level: max
 	paths:
-		- %currentWorkingDirectory%/src
+		- src

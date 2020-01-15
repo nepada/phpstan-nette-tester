@@ -6,10 +6,10 @@ includes:
 parameters:
 	level: max
 	paths:
-		- %currentWorkingDirectory%/tests
+		- tests
 
 	autoload_directories:
-		- %currentWorkingDirectory%/tests
+		- tests
 
 	excludes_analyse:
-		- %currentWorkingDirectory%/tests/PHPStan/Type/NetteTester/Fixtures/Foo.php
+		- tests/PHPStan/Type/NetteTester/Fixtures/Foo.php
