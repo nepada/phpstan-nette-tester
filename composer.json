@@ -1,5 +1,5 @@
 {
-	"name": "damejidlo/phpstan-nette-tester",
+	"name": "nepada/phpstan-nette-tester",
 	"type": "phpstan-extension",
 	"description": "PHPStan nette/tester extension",
 	"keywords": ["phpstan", "nette", "tester"],
