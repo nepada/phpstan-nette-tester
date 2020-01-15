@@ -1,50 +1,54 @@
 {
-	"name": "nepada/phpstan-nette-tester",
-	"type": "phpstan-extension",
-	"license": "BSD-3-Clause",
-	"description": "PHPStan nette/tester extension",
-	"keywords": ["phpstan", "nette", "tester"],
-	"support": {
-		"email": "petr@pada.cz",
-		"issues": "https://github.com/nepada/phpstan-nette-tester/issues"
-	},
-	"authors": [
-		{
-			"name": "Petr Morávek",
-			"email": "petr@pada.cz"
-		}
-	],
-	"require": {
-		"php": ">=7.2",
-		"nikic/php-parser": "^4.0",
-		"phpstan/phpstan": "^0.12.0"
-	},
-	"require-dev": {
-		"damejidlo/coding-standard": "^2.0.0",
-		"jakub-onderka/php-parallel-lint": "^1.0",
-		"nette/tester": "^2.3.1",
-		"phpunit/phpunit": "^7.5.18",
-		"phpstan/phpstan-phpunit": "^0.12.5",
-		"phpstan/phpstan-strict-rules": "^0.12.1"
-	},
-	"autoload": {
-		"psr-4": {
-			"Nepada\\PHPStan\\": "src/"
-		}
-	},
-	"autoload-dev": {
-		"psr-4": {
-			"NepadaTests\\": "tests/"
-		}
-	},
-	"extra": {
-		"branch-alias": {
-			"dev-master": "0.3-dev"
-		},
-		"phpstan": {
-			"includes": [
-				"extension.neon"
-			]
-		}
-	}
+    "name": "nepada/phpstan-nette-tester",
+    "type": "phpstan-extension",
+    "license": "BSD-3-Clause",
+    "description": "PHPStan nette/tester extension",
+    "keywords": [
+        "phpstan",
+        "nette",
+        "tester"
+    ],
+    "support": {
+        "email": "petr@pada.cz",
+        "issues": "https://github.com/nepada/phpstan-nette-tester/issues"
+    },
+    "authors": [
+        {
+            "name": "Petr Morávek",
+            "email": "petr@pada.cz"
+        }
+    ],
+    "require": {
+        "php": ">=7.2",
+        "nikic/php-parser": "^4.0",
+        "phpstan/phpstan": "^0.12.0"
+    },
+    "require-dev": {
+        "nepada/coding-standard": "^6.3.0",
+        "jakub-onderka/php-parallel-lint": "^1.0",
+        "nette/tester": "^2.3.1",
+        "phpunit/phpunit": "^7.5.18",
+        "phpstan/phpstan-phpunit": "^0.12.5",
+        "phpstan/phpstan-strict-rules": "^0.12.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Nepada\\PHPStan\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "NepadaTests\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.3-dev"
+        },
+        "phpstan": {
+            "includes": [
+                "extension.neon"
+            ]
+        }
+    }
 }

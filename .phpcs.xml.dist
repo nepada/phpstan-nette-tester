@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <ruleset>
-    <config name="installed_paths" value="../../damejidlo/coding-standard/DameJidloCodingStandard"/><!-- relative path from PHPCS source location -->
+    <config name="installed_paths" value="../../nepada/coding-standard/src"/><!-- relative path from PHPCS source location -->
 
     <arg value="ps"/><!-- show progress of the run, show sniff names -->
     <arg name="cache" value=".phpcs-cache"/>
@@ -9,9 +9,21 @@
     <file>src</file>
     <file>tests</file>
 
-    <rule ref="DameJidloCodingStandard">
+    <rule ref="Nepada">
     </rule>
 
+    <rule ref="SlevomatCodingStandard.Files.TypeNameMatchesFileName">
+        <exclude-pattern>*/exceptions.php</exclude-pattern>
+        <properties>
+            <property name="rootNamespaces" type="array">
+                <element key="src" value="Nepada\PHPStan"/>
+                <element key="tests" value="NepadaTests"/>
+            </property>
+            <property name="extensions" type="array">
+                <element value="php"/>
+            </property>
+        </properties>
+    </rule>
     <rule ref="SlevomatCodingStandard.Namespaces.UnusedUses">
         <properties>
             <property name="ignoredAnnotationNames" type="array">
@@ -20,20 +32,8 @@
             </property>
         </properties>
     </rule>
-    <rule ref="SlevomatCodingStandard.Files.TypeNameMatchesFileName">
-        <exclude-pattern>*/exceptions.php</exclude-pattern>
-        <properties>
-            <property name="rootNamespaces" type="array">
-                <element key="src" value="Damejidlo\PHPStan"/>
 
-                <element key="tests" value="DamejidloTests"/>
-            </property>
-            <property name="extensions" type="array">
-                <element value="php"/>
-            </property>
-        </properties>
-    </rule>
-
+    <!-- special settings for tests and bootstrap -->
     <rule ref="PSR1.Files.SideEffects">
         <exclude-pattern>*/bootstrap.php</exclude-pattern>
     </rule>
