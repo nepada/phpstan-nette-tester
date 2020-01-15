@@ -1,7 +1,7 @@
 <?php
 declare(strict_types = 1);
 
-namespace Damejidlo\PHPStan\Type\NetteTester;
+namespace Nepada\PHPStan\Type\NetteTester;
 
 use PhpParser\Node\Arg;
 use PhpParser\Node\Expr;

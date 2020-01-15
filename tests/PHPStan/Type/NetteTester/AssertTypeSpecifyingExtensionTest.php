@@ -1,10 +1,10 @@
 <?php
 declare(strict_types = 1);
 
-namespace DamejidloTests\PHPStan\Type\NetteTester;
+namespace NepadaTests\PHPStan\Type\NetteTester;
 
-use Damejidlo\PHPStan\Type\NetteTester\AssertTypeSpecifyingExtension;
-use DamejidloTests\PHPStan\VariableTypeReportingRule;
+use Nepada\PHPStan\Type\NetteTester\AssertTypeSpecifyingExtension;
+use NepadaTests\PHPStan\VariableTypeReportingRule;
 use PHPStan\Rules\Rule;
 use PHPStan\Testing\RuleTestCase;
 use PHPStan\Type\StaticMethodTypeSpecifyingExtension;
@@ -122,7 +122,7 @@ class AssertTypeSpecifyingExtensionTest extends RuleTestCase
 					98,
 				],
 				[
-					'Variable $t is: DamejidloTests\PHPStan\Type\NetteTester\Fixtures\Foo',
+					'Variable $t is: NepadaTests\PHPStan\Type\NetteTester\Fixtures\Foo',
 					101,
 				],
 				[

@@ -19,12 +19,12 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"Damejidlo\\PHPStan\\": "src/"
+			"Nepada\\PHPStan\\": "src/"
 		}
 	},
 	"autoload-dev": {
 		"psr-4": {
-			"DamejidloTests\\": "tests/"
+			"NepadaTests\\": "tests/"
 		}
 	},
 	"extra": {

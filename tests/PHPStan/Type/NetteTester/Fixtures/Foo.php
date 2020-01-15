@@ -1,7 +1,7 @@
 <?php
 declare(strict_types = 1);
 
-namespace DamejidloTests\PHPStan\Type\NetteTester\Fixtures;
+namespace NepadaTests\PHPStan\Type\NetteTester\Fixtures;
 
 use Tester\Assert;
 

@@ -6,6 +6,6 @@ parameters:
 
 services:
 	-
-		type: Damejidlo\PHPStan\Type\NetteTester\AssertTypeSpecifyingExtension
+		type: Nepada\PHPStan\Type\NetteTester\AssertTypeSpecifyingExtension
 		tags:
 			- phpstan.typeSpecifier.staticMethodTypeSpecifyingExtension

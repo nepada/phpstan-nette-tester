@@ -1,7 +1,7 @@
 <?php
 declare(strict_types = 1);
 
-namespace DamejidloTests\PHPStan;
+namespace NepadaTests\PHPStan;
 
 use PhpParser\Node;
 use PhpParser\Node\Expr\Variable;
