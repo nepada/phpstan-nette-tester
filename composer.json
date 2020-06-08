@@ -21,15 +21,15 @@
     "require": {
         "php": ">=7.2",
         "nikic/php-parser": "^4.0",
-        "phpstan/phpstan": "^0.12.0"
+        "phpstan/phpstan": "^0.12.26"
     },
     "require-dev": {
         "nepada/coding-standard": "^6.3.0",
-        "php-parallel-lint/php-parallel-lint": "^1.1",
-        "nette/tester": "^2.3.1",
+        "php-parallel-lint/php-parallel-lint": "^1.2",
+        "nette/tester": "^2.3.2",
         "phpunit/phpunit": "^7.5.18",
-        "phpstan/phpstan-phpunit": "^0.12.5",
-        "phpstan/phpstan-strict-rules": "^0.12.1"
+        "phpstan/phpstan-phpunit": "^0.12.11",
+        "phpstan/phpstan-strict-rules": "^0.12.2"
     },
     "autoload": {
         "psr-4": {

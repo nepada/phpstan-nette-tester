@@ -8,8 +8,5 @@ parameters:
     paths:
         - tests
 
-    autoload_directories:
-        - tests
-
     excludes_analyse:
         - tests/PHPStan/Type/NetteTester/Fixtures/Foo.php
