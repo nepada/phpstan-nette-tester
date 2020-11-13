@@ -27,7 +27,7 @@
         "nepada/coding-standard": "^6.3.0",
         "php-parallel-lint/php-parallel-lint": "^1.2",
         "nette/tester": "^2.3.2",
-        "phpunit/phpunit": "^7.5.18",
+        "phpunit/phpunit": "^8.5.9 || ^9.4.3",
         "phpstan/phpstan-phpunit": "^0.12.11",
         "phpstan/phpstan-strict-rules": "^0.12.2"
     },
