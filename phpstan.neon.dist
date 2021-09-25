@@ -1,5 +1,6 @@
 includes:
     - vendor/phpstan/phpstan-strict-rules/rules.neon
+    - tests/PHPStan/conditional.config.php
 
 parameters:
     level: max
