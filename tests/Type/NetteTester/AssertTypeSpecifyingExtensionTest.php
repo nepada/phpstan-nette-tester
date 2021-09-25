@@ -4,13 +4,13 @@ declare(strict_types = 1);
 namespace NepadaTests\PHPStan\Type\NetteTester;
 
 use Nepada\PHPStan\Type\NetteTester\AssertTypeSpecifyingExtension;
-use NepadaTests\PHPStan\VariableTypeReportingRule;
+use NepadaTests\PHPStan\Rules\VariableTypeReportingRule;
 use PHPStan\Rules\Rule;
 use PHPStan\Testing\RuleTestCase;
 use PHPStan\Type\StaticMethodTypeSpecifyingExtension;
 
 /**
- * @extends RuleTestCase<VariableTypeReportingRule>
+ * @extends RuleTestCase<\NepadaTests\PHPStan\Rules\VariableTypeReportingRule>
  */
 class AssertTypeSpecifyingExtensionTest extends RuleTestCase
 {

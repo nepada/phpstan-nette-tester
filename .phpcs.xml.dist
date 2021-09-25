@@ -17,7 +17,7 @@
         <properties>
             <property name="rootNamespaces" type="array">
                 <element key="src" value="Nepada\PHPStan"/>
-                <element key="tests" value="NepadaTests"/>
+                <element key="tests" value="NepadaTests\PHPStan"/>
             </property>
             <property name="extensions" type="array">
                 <element value="php"/>

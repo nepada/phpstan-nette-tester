@@ -1,7 +1,7 @@
 <?php
 declare(strict_types = 1);
 
-namespace NepadaTests\PHPStan;
+namespace NepadaTests\PHPStan\Rules;
 
 use PHPStan\Analyser\Scope;
 use PHPStan\Rules\Rule;
