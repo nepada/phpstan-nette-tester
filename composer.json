@@ -29,7 +29,7 @@
         "nette/tester": "2.4.1",
         "phpstan/phpstan-phpunit": "0.12.22",
         "phpstan/phpstan-strict-rules": "0.12.11",
-        "phpunit/phpunit": "^8.5.9 || ^9.4.3"
+        "phpunit/phpunit": "^8.5.21 || ^9.5.10"
     },
     "autoload": {
         "psr-4": {
