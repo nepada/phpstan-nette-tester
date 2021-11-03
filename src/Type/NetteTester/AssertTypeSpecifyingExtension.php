@@ -13,7 +13,6 @@ use PHPStan\Type\StaticMethodTypeSpecifyingExtension;
 use PhpParser\Node\Arg;
 use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\StaticCall;
-use PhpParser\Node\VariadicPlaceholder;
 
 class AssertTypeSpecifyingExtension implements StaticMethodTypeSpecifyingExtension, TypeSpecifierAwareExtension
 {
@@ -50,16 +49,11 @@ class AssertTypeSpecifyingExtension implements StaticMethodTypeSpecifyingExtensi
         TypeSpecifierContext $context
     ): SpecifiedTypes
     {
-        // Compatibility with nikic/php-parser <4.13
-        $callArguments = [];
-        foreach ($node->args as $arg) {
-            if ($arg instanceof VariadicPlaceholder) {
-                return new SpecifiedTypes([], []);
-            }
-            $callArguments[] = $arg;
+        if ($node->isFirstClassCallable()) {
+            return new SpecifiedTypes([], []);
         }
 
-        $expression = self::createExpression($scope, $staticMethodReflection->getName(), $callArguments);
+        $expression = self::createExpression($scope, $staticMethodReflection->getName(), $node->getArgs());
         if ($expression === null) {
             return new SpecifiedTypes([], []);
         }
