@@ -105,12 +105,12 @@ class Foo
         assertType('2', $x);
 
         $y = rand(0, 1) > 0 ? ['foo'] : '';
-        assertType("''|array('foo')", $y);
+        assertType("''|array{'foo'}", $y);
         Assert::truthy($y);
-        assertType("array('foo')", $y);
+        assertType("array{'foo'}", $y);
 
         $z = rand(0, 1) > 0 ? ['foo'] : '';
-        assertType("''|array('foo')", $z);
+        assertType("''|array{'foo'}", $z);
         Assert::falsey($z);
         assertType("''", $z);
     }
