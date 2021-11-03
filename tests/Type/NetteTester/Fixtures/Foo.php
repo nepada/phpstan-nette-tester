@@ -4,6 +4,7 @@ declare(strict_types = 1);
 namespace NepadaTests\PHPStan\Type\NetteTester\Fixtures;
 
 use Tester\Assert;
+use function PHPStan\Testing\assertType;
 
 class Foo
 {
@@ -34,84 +35,84 @@ class Foo
     public function doFoo($a, $b, $c, $d, $e, array $f, array $g, $h, $i, $j, $k, $l, $m, $n, $o, $p, $q, $r, $s, $t, ?string $u): void
     {
         Assert::null($a);
-        $a;
+        assertType('null', $a);
 
         Assert::notNull($u);
-        $u;
+        assertType('string', $u);
 
         Assert::true($b);
-        $b;
+        assertType('true', $b);
 
         Assert::false($c);
-        $c;
+        assertType('false', $c);
 
         Assert::nan($d);
-        $d;
+        assertType('float', $d);
 
         Assert::same('Lorem ipsum', $e);
-        $e;
+        assertType("'Lorem ipsum'", $e);
 
         Assert::count(1, $f);
         $item = reset($f);
-        $item;
+        assertType('string', $item);
 
         Assert::count(0, $g);
         $item = reset($g);
-        $item;
+        assertType('false', $item);
 
         Assert::type('list', $h);
-        $h;
+        assertType('array', $h);
 
         Assert::type('array', $i);
-        $i;
+        assertType('array', $i);
 
         Assert::type('bool', $j);
-        $j;
+        assertType('bool', $j);
 
         Assert::type('callable', $k);
-        $k;
+        assertType('callable(): mixed', $k);
 
         Assert::type('float', $l);
-        $l;
+        assertType('float', $l);
 
         Assert::type('int', $m);
-        $m;
+        assertType('int', $m);
 
         Assert::type('integer', $n);
-        $n;
+        assertType('int', $n);
 
         Assert::type('null', $o);
-        $o;
+        assertType('null', $o);
 
         Assert::type('object', $p);
-        $p;
+        assertType('object', $p);
 
         Assert::type('resource', $q);
-        $q;
+        assertType('resource', $q);
 
         Assert::type('scalar', $r);
-        $r;
+        assertType('bool|float|int|string', $r);
 
         Assert::type('string', $s);
-        $s;
+        assertType('string', $s);
 
         Assert::type(self::class, $t);
-        $t;
+        assertType(self::class, $t);
 
         $x = rand(0, 1) > 0 ? 1 : 2;
-        $x;
+        assertType('1|2', $x);
         Assert::notSame(1, $x);
-        $x;
+        assertType('2', $x);
 
         $y = rand(0, 1) > 0 ? ['foo'] : '';
-        $y;
+        assertType("''|array('foo')", $y);
         Assert::truthy($y);
-        $y;
+        assertType("array('foo')", $y);
 
         $z = rand(0, 1) > 0 ? ['foo'] : '';
-        $z;
+        assertType("''|array('foo')", $z);
         Assert::falsey($z);
-        $z;
+        assertType("''", $z);
     }
 
 }
