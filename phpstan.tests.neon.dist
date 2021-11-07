@@ -8,5 +8,5 @@ parameters:
     paths:
         - tests
 
-    excludes_analyse:
+    excludePaths:
         - tests/Type/NetteTester/Fixtures/Foo.php
