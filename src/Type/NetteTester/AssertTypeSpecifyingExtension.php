@@ -3,6 +3,9 @@ declare(strict_types = 1);
 
 namespace Nepada\PHPStan\Type\NetteTester;
 
+use PhpParser\Node\Arg;
+use PhpParser\Node\Expr;
+use PhpParser\Node\Expr\StaticCall;
 use PHPStan\Analyser\Scope;
 use PHPStan\Analyser\SpecifiedTypes;
 use PHPStan\Analyser\TypeSpecifier;
@@ -10,15 +13,24 @@ use PHPStan\Analyser\TypeSpecifierAwareExtension;
 use PHPStan\Analyser\TypeSpecifierContext;
 use PHPStan\Reflection\MethodReflection;
 use PHPStan\Type\StaticMethodTypeSpecifyingExtension;
-use PhpParser\Node\Arg;
-use PhpParser\Node\Expr;
-use PhpParser\Node\Expr\StaticCall;
 
 class AssertTypeSpecifyingExtension implements StaticMethodTypeSpecifyingExtension, TypeSpecifierAwareExtension
 {
 
-    /** @var TypeSpecifier */
-    private $typeSpecifier;
+    private TypeSpecifier $typeSpecifier;
+
+    /**
+     * @param Scope $scope
+     * @param string $name
+     * @param Arg[] $args
+     * @return Expr|NULL
+     */
+    private static function createExpression(Scope $scope, string $name, array $args): ?Expr
+    {
+        $resolvers = AssertMethodExpressionResolversProvider::getResolvers();
+        $resolver = $resolvers[$name];
+        return $resolver($scope, ...$args);
+    }
 
     public function setTypeSpecifier(TypeSpecifier $typeSpecifier): void
     {
@@ -61,21 +73,8 @@ class AssertTypeSpecifyingExtension implements StaticMethodTypeSpecifyingExtensi
         return $this->typeSpecifier->specifyTypesInCondition(
             $scope,
             $expression,
-            TypeSpecifierContext::createTruthy()
+            TypeSpecifierContext::createTruthy(),
         );
-    }
-
-    /**
-     * @param Scope $scope
-     * @param string $name
-     * @param Arg[] $args
-     * @return Expr|NULL
-     */
-    private static function createExpression(Scope $scope, string $name, array $args): ?Expr
-    {
-        $resolvers = AssertMethodExpressionResolversProvider::getResolvers();
-        $resolver = $resolvers[$name];
-        return $resolver($scope, ...$args);
     }
 
 }

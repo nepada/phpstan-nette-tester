@@ -9,6 +9,14 @@ class AssertTypeSpecifyingExtensionTest extends TypeInferenceTestCase
 {
 
     /**
+     * @return array<string>
+     */
+    public static function getAdditionalConfigFiles(): array
+    {
+        return [__DIR__ . '/../../../extension.neon'];
+    }
+
+    /**
      * @return iterable<mixed>
      */
     public function dataFileAsserts(): iterable
@@ -29,14 +37,6 @@ class AssertTypeSpecifyingExtensionTest extends TypeInferenceTestCase
     ): void
     {
         $this->assertFileAsserts($assertType, $file, ...$args);
-    }
-
-    /**
-     * @return array<string>
-     */
-    public static function getAdditionalConfigFiles(): array
-    {
-        return [__DIR__ . '/../../../extension.neon'];
     }
 
 }
