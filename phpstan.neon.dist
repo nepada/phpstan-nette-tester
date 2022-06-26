@@ -1,6 +1,7 @@
 includes:
     - vendor/phpstan/phpstan-strict-rules/rules.neon
     - tests/PHPStan/conditional.config.php
+    - tests/PHPStan/shipmonk.neon
 
 parameters:
     level: max
