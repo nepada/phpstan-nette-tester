@@ -30,7 +30,7 @@
         "phpstan/phpstan-phpunit": "1.3.3",
         "phpstan/phpstan-strict-rules": "1.4.5",
         "spaze/phpstan-disallowed-calls": "2.11.5",
-        "shipmonk/phpstan-rules": "2.0.1",
+        "shipmonk/phpstan-rules": "2.2.0",
         "phpunit/phpunit": "^8.5.21 || ^9.5.10"
     },
     "autoload": {
