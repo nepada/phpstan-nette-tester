@@ -14,3 +14,6 @@ updates:
       - dependency-type: "development"
     ignore:
       - dependency-name: "phpunit/phpunit"
+    groups:
+        phpstan:
+            patterns: ["*phpstan*"]
