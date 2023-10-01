@@ -20,8 +20,6 @@ class AssertTypeSpecifyingExtension implements StaticMethodTypeSpecifyingExtensi
     private TypeSpecifier $typeSpecifier;
 
     /**
-     * @param Scope $scope
-     * @param string $name
      * @param Arg[] $args
      * @return Expr|NULL
      */
