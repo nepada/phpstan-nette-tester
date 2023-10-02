@@ -5,6 +5,7 @@ namespace NepadaTests\PHPStan\Type\NetteTester;
 
 use PHPStan\Testing\TypeInferenceTestCase;
 
+// phpcs:disable Squiz.Commenting.FunctionComment.InvalidTypeHint -- false positive reported on testFileAsserts
 class AssertTypeSpecifyingExtensionTest extends TypeInferenceTestCase
 {
 
@@ -26,8 +27,6 @@ class AssertTypeSpecifyingExtensionTest extends TypeInferenceTestCase
 
     /**
      * @dataProvider dataFileAsserts
-     * @param string $assertType
-     * @param string $file
      * @param mixed ...$args
      */
     public function testFileAsserts(
