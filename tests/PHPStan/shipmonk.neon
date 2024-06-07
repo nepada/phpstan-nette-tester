@@ -5,8 +5,6 @@ parameters:
     shipmonkRules:
         allowComparingOnlyComparableTypes:
             enabled: false
-        allowNamedArgumentOnlyInAttributes:
-            enabled: false
         enforceReadonlyPublicProperty:
             enabled: false
         forbidCustomFunctions:
