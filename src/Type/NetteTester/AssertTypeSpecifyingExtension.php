@@ -21,7 +21,6 @@ class AssertTypeSpecifyingExtension implements StaticMethodTypeSpecifyingExtensi
 
     /**
      * @param Arg[] $args
-     * @return Expr|NULL
      */
     private static function createExpression(Scope $scope, string $name, array $args): ?Expr
     {

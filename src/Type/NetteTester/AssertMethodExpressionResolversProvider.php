@@ -21,17 +21,17 @@ final class AssertMethodExpressionResolversProvider
 {
 
     /**
-     * @var \Closure[]|NULL
+     * @var array<string, \Closure>|NULL
      */
     private static ?array $resolvers = null;
 
     /**
-     * @var \Closure[]|NULL
+     * @var array<string, \Closure>|NULL
      */
     private static ?array $typeResolvers = null;
 
     /**
-     * @return \Closure[]
+     * @return array<string, \Closure>
      */
     public static function getResolvers(): array
     {
@@ -122,7 +122,7 @@ final class AssertMethodExpressionResolversProvider
     }
 
     /**
-     * @return \Closure[]
+     * @return array<string, \Closure>
      */
     private static function getTypeResolvers(): array
     {

@@ -22,7 +22,7 @@ class AssertTypeSpecifyingExtensionTest extends TypeInferenceTestCase
      */
     public function dataFileAsserts(): iterable
     {
-        yield from $this->gatherAssertTypes(__DIR__ . '/Fixtures/Foo.php');
+        yield from self::gatherAssertTypes(__DIR__ . '/Fixtures/Foo.php');
     }
 
     /**
