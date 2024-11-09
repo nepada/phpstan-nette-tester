@@ -62,7 +62,7 @@ class Foo
         assertType('false', $item);
 
         Assert::type('list', $h);
-        assertType('array', $h);
+        assertType('list<mixed>', $h);
 
         Assert::type('array', $i);
         assertType('array', $i);

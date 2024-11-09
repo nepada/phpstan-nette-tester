@@ -131,9 +131,15 @@ final class AssertMethodExpressionResolversProvider
     {
         if (self::$typeResolvers === null) {
             self::$typeResolvers = [
-                'list' => fn (Scope $scope, Arg $value): Expr => new FuncCall(
-                    new Name('is_array'),
-                    [$value],
+                'list' => fn (Scope $scope, Arg $value): Expr => new BooleanAnd(
+                    new FuncCall(
+                        new Name('is_array'),
+                        [$value],
+                    ),
+                    new FuncCall(
+                        new Name('array_is_list'),
+                        [$value],
+                    ),
                 ),
                 'array' => fn (Scope $scope, Arg $value): Expr => new FuncCall(
                     new Name('is_array'),
