@@ -15,7 +15,7 @@ use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Expr\Instanceof_;
 use PhpParser\Node\Name;
 use PHPStan\Analyser\Scope;
-use PHPStan\Type\Constant\ConstantStringType;
+use function array_key_exists;
 
 final class AssertMethodExpressionResolversProvider
 {
@@ -80,21 +80,24 @@ final class AssertMethodExpressionResolversProvider
                     $value2->value,
                 ),
                 'type' => function (Scope $scope, Arg $typeArg, Arg $valueArg): ?Expr {
-                    $type = $scope->getType($typeArg->value);
-                    if (! $type instanceof ConstantStringType) {
+                    $constantStrings = $scope->getType($typeArg->value)->getConstantStrings();
+                    if (count($constantStrings) === 0) {
                         return null;
                     }
 
-                    $typeValue = $type->getValue();
                     $typeResolvers = self::getTypeResolvers();
-                    if (array_key_exists($typeValue, $typeResolvers)) {
-                        return $typeResolvers[$typeValue]($scope, $valueArg);
+                    $expr = null;
+                    foreach ($constantStrings as $constantString) {
+                        $typeValue = $constantString->getValue();
+                        $typeExpr = array_key_exists($typeValue, $typeResolvers)
+                            ? $typeResolvers[$typeValue]($scope, $valueArg)
+                            : new Instanceof_($valueArg->value, new Name($typeValue));
+                        $expr = $expr === null
+                            ? $typeExpr
+                            : new BooleanOr($expr, $typeExpr);
                     }
 
-                    return new Instanceof_(
-                        $valueArg->value,
-                        new Name($typeValue),
-                    );
+                    return $expr;
                 },
                 'count' => fn (Scope $scope, Arg $count, Arg $value): Expr => new BooleanAnd(
                     new BooleanOr(

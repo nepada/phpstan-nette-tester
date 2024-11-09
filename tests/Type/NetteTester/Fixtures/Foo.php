@@ -5,6 +5,7 @@ namespace NepadaTests\PHPStan\Type\NetteTester\Fixtures;
 
 use Tester\Assert;
 use function PHPStan\Testing\assertType;
+use function rand;
 
 class Foo
 {
@@ -113,6 +114,17 @@ class Foo
         assertType("''|array{'foo'}", $z);
         Assert::falsey($z);
         assertType("''", $z);
+    }
+
+    /**
+     * @param mixed $value
+     */
+    public function testTypeWithMultiplePossibilities($value): void
+    {
+        $type = rand(0, 1) > 0 ? 'int' : 'string';
+        assertType("'int'|'string'", $type);
+        Assert::type($type, $value);
+        assertType('int|string', $value);
     }
 
 }
