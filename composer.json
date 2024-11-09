@@ -21,7 +21,7 @@
     "require": {
         "php": ">=7.4 <8.5",
         "nikic/php-parser": "^4.13.2 || ^v5.0.2",
-        "phpstan/phpstan": "^1.8.11"
+        "phpstan/phpstan": "^1.12"
     },
     "require-dev": {
         "nepada/coding-standard": "7.14.1",
