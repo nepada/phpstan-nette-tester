@@ -10,7 +10,7 @@ class AssertTypeSpecifyingExtensionTest extends TypeInferenceTestCase
 {
 
     /**
-     * @return array<string>
+     * @return list<string>
      */
     public static function getAdditionalConfigFiles(): array
     {
