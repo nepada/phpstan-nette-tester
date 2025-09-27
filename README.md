@@ -1,7 +1,6 @@
 # PHPStan nette/tester extension
 
 [![Build Status](https://github.com/nepada/phpstan-nette-tester/workflows/CI/badge.svg)](https://github.com/nepada/phpstan-nette-tester/actions?query=workflow%3ACI+branch%3Amaster)
-[![Coverage Status](https://coveralls.io/repos/github/nepada/phpstan-nette-tester/badge.svg?branch=master)](https://coveralls.io/github/nepada/phpstan-nette-tester?branch=master)
 [![Downloads this Month](https://img.shields.io/packagist/dm/nepada/phpstan-nette-tester.svg)](https://packagist.org/packages/nepada/phpstan-nette-tester)
 [![Latest stable](https://img.shields.io/packagist/v/nepada/phpstan-nette-tester.svg)](https://packagist.org/packages/nepada/phpstan-nette-tester)
 
