@@ -13,6 +13,8 @@ use PHPStan\Analyser\TypeSpecifierAwareExtension;
 use PHPStan\Analyser\TypeSpecifierContext;
 use PHPStan\Reflection\MethodReflection;
 use PHPStan\Type\StaticMethodTypeSpecifyingExtension;
+use function array_slice;
+use function count;
 
 class AssertTypeSpecifyingExtension implements StaticMethodTypeSpecifyingExtension, TypeSpecifierAwareExtension
 {
@@ -24,6 +26,18 @@ class AssertTypeSpecifyingExtension implements StaticMethodTypeSpecifyingExtensi
      */
     private static function createExpression(Scope $scope, string $name, array $args): ?Expr
     {
+        $requiredArgumentCount = AssertMethodExpressionResolversProvider::getRequiredArgumentCounts()[$name];
+        if (count($args) < $requiredArgumentCount) {
+            return null;
+        }
+
+        $args = array_slice($args, 0, $requiredArgumentCount);
+        foreach ($args as $arg) {
+            if ($arg->unpack) {
+                return null;
+            }
+        }
+
         $resolvers = AssertMethodExpressionResolversProvider::getResolvers();
         $resolver = $resolvers[$name];
         return $resolver($scope, ...$args);

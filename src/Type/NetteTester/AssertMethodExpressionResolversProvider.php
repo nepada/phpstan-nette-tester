@@ -31,6 +31,11 @@ final class AssertMethodExpressionResolversProvider
     private static ?array $typeResolvers = null;
 
     /**
+     * @var array<string, int>|NULL
+     */
+    private static ?array $requiredArgumentCounts = null;
+
+    /**
      * @return array<string, \Closure(Scope $scope, Arg $value): Expr|\Closure(Scope $scope, Arg $value1, Arg $value2): ?Expr>
      */
     public static function getResolvers(): array
@@ -122,6 +127,24 @@ final class AssertMethodExpressionResolversProvider
         }
 
         return self::$resolvers;
+    }
+
+    /**
+     * Number of `Arg` parameters (i.e. excluding the leading `Scope`) each resolver needs to be called with.
+     *
+     * @return array<string, int>
+     */
+    public static function getRequiredArgumentCounts(): array
+    {
+        if (self::$requiredArgumentCounts === null) {
+            $requiredArgumentCounts = [];
+            foreach (self::getResolvers() as $name => $resolver) {
+                $requiredArgumentCounts[$name] = (new \ReflectionFunction($resolver))->getNumberOfRequiredParameters() - 1;
+            }
+            self::$requiredArgumentCounts = $requiredArgumentCounts;
+        }
+
+        return self::$requiredArgumentCounts;
     }
 
     /**
