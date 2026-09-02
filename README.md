@@ -45,6 +45,8 @@ This extension specifies types of values passed to:
 * `Assert::notSame()`
 * `Assert::type()`
 * `Assert::count()`
+* `Assert::hasKey()`
+* `Assert::hasNotKey()`
 
 
 ## Installation
@@ -61,7 +63,7 @@ If you have enabled `checkAlwaysTrueCheckTypeFunctionCall: true`, you will need 
 ```
 parameters:
 	ignoreErrors:
-		- '~Call to static method Tester\\Assert::(type|count|same|notSame)\(\) with .* and .* will always evaluate to true\.~'
+		- '~Call to static method Tester\\Assert::(type|count|same|notSame|hasKey|hasNotKey)\(\) with .* and .* will always evaluate to true\.~'
 		- '~Call to static method Tester\\Assert::(null|notNull|true|false|truthy|falsey|nan)\(\) with .* will always evaluate to true\.~'
 ```
 

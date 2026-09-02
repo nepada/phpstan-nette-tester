@@ -139,4 +139,30 @@ class Foo
         assertType('string|null', $description);
     }
 
+    /**
+     * @param array{foo?: int, bar: string} $shape
+     * @param array<string, int> $array
+     */
+    public function testHasKey(array $shape, array $array): void
+    {
+        Assert::hasKey('foo', $shape);
+        assertType('array{foo: int, bar: string}', $shape);
+
+        Assert::hasKey('foo', $array, 'description is ignored');
+        assertType("non-empty-array<string, int>&hasOffset('foo')", $array);
+    }
+
+    /**
+     * @param array{foo?: int, bar: string} $shape
+     * @param array<string, int> $array
+     */
+    public function testHasNotKey(array $shape, array $array): void
+    {
+        Assert::hasNotKey('foo', $shape);
+        assertType('array{bar: string}', $shape);
+
+        Assert::hasNotKey(actual: $array, key: 'foo');
+        assertType('array<string, int>', $array);
+    }
+
 }
