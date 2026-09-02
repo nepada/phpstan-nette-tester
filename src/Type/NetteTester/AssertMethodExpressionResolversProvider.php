@@ -10,6 +10,7 @@ use PhpParser\Node\Expr\BinaryOp\BooleanOr;
 use PhpParser\Node\Expr\BinaryOp\Equal;
 use PhpParser\Node\Expr\BinaryOp\Identical;
 use PhpParser\Node\Expr\BinaryOp\NotIdentical;
+use PhpParser\Node\Expr\BooleanNot;
 use PhpParser\Node\Expr\ConstFetch;
 use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Expr\Instanceof_;
@@ -121,6 +122,16 @@ final class AssertMethodExpressionResolversProvider
                             [$value],
                         ),
                         $count->value,
+                    ),
+                ),
+                'hasKey' => fn (Scope $scope, Arg $key, Arg $value): Expr => new FuncCall(
+                    new Name('array_key_exists'),
+                    [$key, $value],
+                ),
+                'hasNotKey' => fn (Scope $scope, Arg $key, Arg $value): Expr => new BooleanNot(
+                    new FuncCall(
+                        new Name('array_key_exists'),
+                        [$key, $value],
                     ),
                 ),
             ];
