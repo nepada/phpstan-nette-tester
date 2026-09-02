@@ -42,7 +42,7 @@ class AssertTypeSpecifyingExtension implements StaticMethodTypeSpecifyingExtensi
     public function isStaticMethodSupported(
         MethodReflection $staticMethodReflection,
         StaticCall $node,
-        TypeSpecifierContext $context
+        TypeSpecifierContext $context,
     ): bool
     {
         $methodName = $staticMethodReflection->getName();
@@ -55,7 +55,7 @@ class AssertTypeSpecifyingExtension implements StaticMethodTypeSpecifyingExtensi
         MethodReflection $staticMethodReflection,
         StaticCall $node,
         Scope $scope,
-        TypeSpecifierContext $context
+        TypeSpecifierContext $context,
     ): SpecifiedTypes
     {
         if ($node->isFirstClassCallable()) {

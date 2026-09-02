@@ -27,12 +27,11 @@ class AssertTypeSpecifyingExtensionTest extends TypeInferenceTestCase
 
     /**
      * @dataProvider dataFileAsserts
-     * @param mixed ...$args
      */
     public function testFileAsserts(
         string $assertType,
         string $file,
-        ...$args
+        mixed ...$args,
     ): void
     {
         $this->assertFileAsserts($assertType, $file, ...$args);
