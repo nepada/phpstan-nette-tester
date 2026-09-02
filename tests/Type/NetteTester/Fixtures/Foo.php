@@ -11,29 +11,11 @@ class Foo
 {
 
     /**
-     * @param mixed $a
-     * @param mixed $b
-     * @param mixed $c
-     * @param mixed $d
-     * @param mixed $e
      * @param string[] $f
      * @param int[] $g
-     * @param mixed $h
-     * @param mixed $i
-     * @param mixed $j
-     * @param mixed $k
-     * @param mixed $l
-     * @param mixed $m
-     * @param mixed $n
-     * @param mixed $o
-     * @param mixed $p
-     * @param mixed $q
-     * @param mixed $r
-     * @param mixed $s
-     * @param mixed $t
      * @param string|NULL $u
      */
-    public function doFoo($a, $b, $c, $d, $e, array $f, array $g, $h, $i, $j, $k, $l, $m, $n, $o, $p, $q, $r, $s, $t, ?string $u): void
+    public function doFoo(mixed $a, mixed $b, mixed $c, mixed $d, mixed $e, array $f, array $g, mixed $h, mixed $i, mixed $j, mixed $k, mixed $l, mixed $m, mixed $n, mixed $o, mixed $p, mixed $q, mixed $r, mixed $s, mixed $t, ?string $u): void
     {
         Assert::null($a);
         assertType('null', $a);
@@ -116,10 +98,7 @@ class Foo
         assertType("''", $z);
     }
 
-    /**
-     * @param mixed $value
-     */
-    public function testTypeWithMultiplePossibilities($value): void
+    public function testTypeWithMultiplePossibilities(mixed $value): void
     {
         $type = rand(0, 1) > 0 ? 'int' : 'string';
         assertType("'int'|'string'", $type);
