@@ -106,4 +106,16 @@ class Foo
         assertType('int|string', $value);
     }
 
+    /**
+     * @param array<int, mixed> $args
+     */
+    public function testUnpackedArguments(array $args): void
+    {
+        Assert::null(...$args);
+        assertType('array<int, mixed>', $args);
+
+        Assert::same(...$args);
+        assertType('array<int, mixed>', $args);
+    }
+
 }
