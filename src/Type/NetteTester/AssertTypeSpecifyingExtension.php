@@ -33,7 +33,7 @@ class AssertTypeSpecifyingExtension implements StaticMethodTypeSpecifyingExtensi
 
         $args = array_slice($args, 0, $requiredArgumentCount);
         foreach ($args as $arg) {
-            if ($arg->unpack) {
+            if ($arg->unpack || $arg->name !== null) { // PHPStan resolves named arguments to their positions, unless the call is invalid
                 return null;
             }
         }

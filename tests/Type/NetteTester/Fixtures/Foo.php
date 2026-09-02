@@ -118,4 +118,25 @@ class Foo
         assertType('array<int, mixed>', $args);
     }
 
+    /**
+     * @param array<string, int> $c
+     */
+    public function testNamedArguments(mixed $a, mixed $b, array $c): void
+    {
+        Assert::null(description: 'must be null', actual: $a);
+        assertType('null', $a);
+
+        Assert::type(value: $b, type: 'int');
+        assertType('int', $b);
+
+        Assert::count(value: $c, count: 1);
+        assertType('non-empty-array<string, int>', $c);
+    }
+
+    public function testUnresolvableNamedArguments(?string $description): void
+    {
+        Assert::null(description: $description);
+        assertType('string|null', $description);
+    }
+
 }
