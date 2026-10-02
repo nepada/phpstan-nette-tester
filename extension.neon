@@ -2,6 +2,8 @@ parameters:
 	earlyTerminatingMethodCalls:
 		Tester\Assert:
 			- fail
+		Tester\Environment:
+			- skip
 
 
 services:

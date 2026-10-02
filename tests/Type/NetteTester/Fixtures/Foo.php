@@ -4,6 +4,7 @@ declare(strict_types = 1);
 namespace NepadaTests\PHPStan\Type\NetteTester\Fixtures;
 
 use Tester\Assert;
+use Tester\Environment;
 use function PHPStan\Testing\assertType;
 use function rand;
 
@@ -152,6 +153,16 @@ class Foo
     {
         Assert::null(description: $description);
         assertType('string|null', $description);
+    }
+
+    public function testEnvironmentSkipIsEarlyTerminating(bool $flag): void
+    {
+        $x = null;
+        if ($flag) {
+            $x = 1;
+            Environment::skip('skipped');
+        }
+        assertType('null', $x);
     }
 
     /**
