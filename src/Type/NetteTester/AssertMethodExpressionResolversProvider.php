@@ -17,6 +17,7 @@ use PhpParser\Node\Expr\Instanceof_;
 use PhpParser\Node\Name;
 use PHPStan\Analyser\Scope;
 use function array_key_exists;
+use function ltrim;
 
 final class AssertMethodExpressionResolversProvider
 {
@@ -97,10 +98,12 @@ final class AssertMethodExpressionResolversProvider
                         $typeValue = $constantString->getValue();
                         if (array_key_exists($typeValue, $typeResolvers)) {
                             $typeExpr = $typeResolvers[$typeValue]($scope, $valueArg);
-                        } elseif ($typeValue === '') {
-                            return null;
                         } else {
-                            $typeExpr = new Instanceof_($valueArg->value, new Name($typeValue));
+                            $className = ltrim($typeValue, '\\');
+                            if ($className === '') {
+                                return null;
+                            }
+                            $typeExpr = new Instanceof_($valueArg->value, new Name($className));
                         }
                         $expr = $expr === null
                             ? $typeExpr

@@ -106,6 +106,15 @@ class Foo
         assertType('int|string', $value);
     }
 
+    public function testTypeWithLeadingBackslash(mixed $a, mixed $b): void
+    {
+        Assert::type('\\stdClass', $a);
+        assertType('stdClass', $a);
+
+        Assert::type('\\' . self::class, $b);
+        assertType(self::class, $b);
+    }
+
     public function testTypeWithEmptyString(mixed $a): void
     {
         Assert::type('', $a);
