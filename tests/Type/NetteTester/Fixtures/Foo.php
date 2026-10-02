@@ -106,6 +106,12 @@ class Foo
         assertType('int|string', $value);
     }
 
+    public function testTypeWithEmptyString(mixed $a): void
+    {
+        Assert::type('', $a);
+        assertType('mixed', $a);
+    }
+
     /**
      * @param array<int, mixed> $args
      */

@@ -95,9 +95,13 @@ final class AssertMethodExpressionResolversProvider
                     $expr = null;
                     foreach ($constantStrings as $constantString) {
                         $typeValue = $constantString->getValue();
-                        $typeExpr = array_key_exists($typeValue, $typeResolvers)
-                            ? $typeResolvers[$typeValue]($scope, $valueArg)
-                            : new Instanceof_($valueArg->value, new Name($typeValue));
+                        if (array_key_exists($typeValue, $typeResolvers)) {
+                            $typeExpr = $typeResolvers[$typeValue]($scope, $valueArg);
+                        } elseif ($typeValue === '') {
+                            return null;
+                        } else {
+                            $typeExpr = new Instanceof_($valueArg->value, new Name($typeValue));
+                        }
                         $expr = $expr === null
                             ? $typeExpr
                             : new BooleanOr($expr, $typeExpr);
