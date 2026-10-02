@@ -18,6 +18,18 @@ class AssertTypeSpecifyingExtensionTest extends TypeInferenceTestCase
     }
 
     /**
+     * Older PHPStan versions (< 2.2.7) do not read the parameter from the container in TypeInferenceTestCase.
+     *
+     * @return string[][]
+     */
+    protected static function getEarlyTerminatingMethodCalls(): array
+    {
+        /** @var string[][] $earlyTerminatingMethodCalls */
+        $earlyTerminatingMethodCalls = self::getContainer()->getParameter('earlyTerminatingMethodCalls');
+        return $earlyTerminatingMethodCalls;
+    }
+
+    /**
      * @return iterable<mixed>
      */
     public function dataFileAsserts(): iterable
