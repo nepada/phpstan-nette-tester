@@ -59,7 +59,7 @@ composer require --dev nepada/phpstan-nette-tester
 
 If you also install [phpstan/extension-installer](https://github.com/phpstan/extension-installer) then you're all set!
 
-If you have enabled `checkAlwaysTrueCheckTypeFunctionCall: true`, you will need to add some ignored errors:
+PHPStan reports assertions on values whose type is already known as always true (e.g. `Call to static method Tester\Assert::type() with 'int' and int will always evaluate to true.`). If you prefer to keep such assertions in your tests, add the following ignored errors:
 ```
 parameters:
 	ignoreErrors:
@@ -67,7 +67,7 @@ parameters:
 		- '~Call to static method Tester\\Assert::(null|notNull|true|false|truthy|falsey|nan)\(\) with .* will always evaluate to true\.~'
 ```
 
-### Manual installation</summary>
+### Manual installation
 
 If you don't want to use `phpstan/extension-installer`, include extension.neon in your project's PHPStan config:
 
