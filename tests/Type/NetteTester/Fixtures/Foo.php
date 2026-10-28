@@ -16,7 +16,29 @@ class Foo
      * @param int[] $g
      * @param string|NULL $u
      */
-    public function doFoo(mixed $a, mixed $b, mixed $c, mixed $d, mixed $e, array $f, array $g, mixed $h, mixed $i, mixed $j, mixed $k, mixed $l, mixed $m, mixed $n, mixed $o, mixed $p, mixed $q, mixed $r, mixed $s, mixed $t, ?string $u): void
+    public function doFoo(
+        mixed $a,
+        mixed $b,
+        mixed $c,
+        mixed $d,
+        mixed $e,
+        array $f,
+        array $g,
+        mixed $h,
+        mixed $i,
+        mixed $j,
+        mixed $k,
+        mixed $l,
+        mixed $m,
+        mixed $n,
+        mixed $o,
+        mixed $p,
+        mixed $q,
+        mixed $r,
+        mixed $s,
+        mixed $t,
+        ?string $u,
+    ): void
     {
         Assert::null($a);
         assertType('null', $a);
@@ -107,7 +129,10 @@ class Foo
         assertType('int|string', $value);
     }
 
-    public function testTypeWithLeadingBackslash(mixed $a, mixed $b): void
+    public function testTypeWithLeadingBackslash(
+        mixed $a,
+        mixed $b,
+    ): void
     {
         Assert::type('\\stdClass', $a);
         assertType('stdClass', $a);
@@ -137,7 +162,11 @@ class Foo
     /**
      * @param array<string, int> $c
      */
-    public function testNamedArguments(mixed $a, mixed $b, array $c): void
+    public function testNamedArguments(
+        mixed $a,
+        mixed $b,
+        array $c,
+    ): void
     {
         Assert::null(description: 'must be null', actual: $a);
         assertType('null', $a);
@@ -169,7 +198,10 @@ class Foo
      * @param array{foo?: int, bar: string} $shape
      * @param array<string, int> $array
      */
-    public function testHasKey(array $shape, array $array): void
+    public function testHasKey(
+        array $shape,
+        array $array,
+    ): void
     {
         Assert::hasKey('foo', $shape);
         assertType('array{foo: int, bar: string}', $shape);
@@ -182,7 +214,10 @@ class Foo
      * @param array{foo?: int, bar: string} $shape
      * @param array<string, int> $array
      */
-    public function testHasNotKey(array $shape, array $array): void
+    public function testHasNotKey(
+        array $shape,
+        array $array,
+    ): void
     {
         Assert::hasNotKey('foo', $shape);
         assertType('array{bar: string}', $shape);

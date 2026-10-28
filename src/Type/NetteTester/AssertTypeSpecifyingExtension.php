@@ -24,7 +24,11 @@ class AssertTypeSpecifyingExtension implements StaticMethodTypeSpecifyingExtensi
     /**
      * @param Arg[] $args
      */
-    private static function createExpression(Scope $scope, string $name, array $args): ?Expr
+    private static function createExpression(
+        Scope $scope,
+        string $name,
+        array $args,
+    ): ?Expr
     {
         $requiredArgumentCount = AssertMethodExpressionResolversProvider::getRequiredArgumentCounts()[$name];
         if (count($args) < $requiredArgumentCount) {
